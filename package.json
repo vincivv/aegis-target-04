@@ -1,0 +1,14 @@
+{
+  "name": "aegis-target-04",
+  "version": "1.0.0",
+  "description": "Express notes API monitored by AEGIS",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
