@@ -4,8 +4,23 @@ const express = require("express");
 const app = express();
 app.use(express.json());
 
+const notes = [
+  { id: 1, title: "welcome", body: "AEGIS is watching this repo." },
+  { id: 2, title: "todo", body: "ship the demo" },
+];
+
 app.get("/health", (req, res) => {
   res.json({ ok: true });
+});
+
+app.get("/notes", (req, res) => {
+  res.json(notes);
+});
+
+app.get("/notes/:id", (req, res) => {
+  const note = notes.find((n) => n.id === Number(req.params.id));
+  if (!note) return res.status(404).json({ error: "not found" });
+  res.json(note);
 });
 
 const PORT = Number(process.env.PORT || 3000);
